@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Comic-Sans;
+    src: url('fonts/ComicSansMS.ttf');
+}
+
 /* LAYOUT */
 
 .main-layout {
@@ -33,6 +38,11 @@ header {
 
 .links a {
     text-decoration: none;
+}
+
+.color-picker {
+    height: 60px;
+    width: 60px;
 }
 
 .gallery {

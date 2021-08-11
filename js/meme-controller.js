@@ -17,21 +17,35 @@ function renderGallery() {
 }
 
 function onClickImg(imgId) {
-    renderCanvas(imgId)
+    setImageToRender(imgId)
+    renderImg()
 }
 
-function renderCanvas(imgId) {
-    setImageToRender(imgId)
+function renderCanvas() {
+    load()
+    renderImg()
 }
 
 function onTextSubmitted() {
-    const txt = document.querySelector('[name=top-text]').value
+    var txt = document.querySelector('[name=top-text]').value
 
     if (!txt) return
     saveNewText(txt)
 
-    if (!gMeme.lines[1])
-    drawText(gMeme.lines[0].txt, 10, 50)
-    else if (!gMeme.lines[2])
-    drawText(gMeme.lines[0].txt, 10, 500)
+    if (!gMeme.lines[1]) {
+        gMeme.lines[gCurrLine].x = 20;
+        gMeme.lines[gCurrLine].y = 50;
+    }
+    else if (!gMeme.lines[2]) {
+        gMeme.lines[gCurrLine].x = 20;
+        gMeme.lines[gCurrLine].y = gElCanvas.height - 50;
+    }
+    else {
+        gMeme.lines[gCurrLine].x = 20;
+        gMeme.lines[gCurrLine].y = gElCanvas.height / 2
+    }
+    // renderLines()
+    drawText(txt, gCurrLine)
+
+    document.querySelector('[name=top-text]').value = '' 
 }
