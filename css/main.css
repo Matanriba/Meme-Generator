@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+/* LAYOUT */
+
+.main-layout {
+    width: 600px;
+}
+
+/*  */
+
+button > img {
+    height: 50px;
+}
+
+canvas {
+    border: 2px solid black;
+}
+
+header {
+    margin-bottom: 5rem;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+}
+
+.links {
+    gap: 10px;
+}
+
+.links a {
+    text-decoration: none;
+}
+
+.gallery {
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery img {
+    object-fit: contain;
+    height: 139px;
+}
+
+
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.align-items {
+    align-items: center;
+}
+
+.clean-list {
+    list-style-type: none;
+}
