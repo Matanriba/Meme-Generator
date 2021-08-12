@@ -126,7 +126,7 @@ button > img {
 /* FOOTER */
 
 footer {
-    height: 200px;
+    height: 100px;
     background-color: #ff7f00;
     flex-direction: column;
     justify-content: center;

@@ -22,6 +22,8 @@ function renderImages() {
     var elGallery = document.querySelector('.gallery')
     elGallery.innerHTML = strHTMLs;
     elGallery.style.display = 'flex';
+    var elFiltering = document.querySelector('.filtering')
+    elFiltering.style.display = 'flex';
 }
 
 function renderKeywords() {
@@ -52,10 +54,12 @@ function onClickImg(imgId) {
 }
 
 function renderEditor() {
-    var memeEditor = document.querySelector('.main')
-    memeEditor.style.display = 'flex';
-    var gallery = document.querySelector('.gallery')
-    gallery.style.display = 'none';
+    var elMemeEditor = document.querySelector('.main')
+    elMemeEditor.style.display = 'flex';
+    var elGallery = document.querySelector('.gallery')
+    elGallery.style.display = 'none';
+    var elFiltering = document.querySelector('.filtering')
+    elFiltering.style.display = 'none';
 }
 
 function onTextSubmitted() {
