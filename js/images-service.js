@@ -110,8 +110,7 @@ function changeKeywordSize(value) {
     var currKeywordIdx = gKeywords.findIndex( (keyword) => {
         return keyword.key === value
     })
-    gKeywords[currKeywordIdx].size += 1
-    console.log(gKeywords[currKeywordIdx].size)
+    if (value !== 'all' && currKeywordIdx) gKeywords[currKeywordIdx].size += 1
 }
 
 function getImgsForDisplay() {

@@ -88,9 +88,9 @@ function onTextSubmitted() {
 
 function onSetFilterBy(value) {
     filterBy(value)
-    changeKeywordSize(value)
     renderImages()
     renderKeywords()
+    changeKeywordSize(value)
 }
 
 function onSaveMeme() {

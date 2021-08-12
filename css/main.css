@@ -13,7 +13,6 @@ body {
     margin: 0;
     text-align: center;
     background-color: #e3e3e3;
-    height: 100vh;
 }
 
 .main-layout {
@@ -25,6 +24,7 @@ button {
     border-radius: 5px;
     border: none;
     background-color: #fff;
+    max-height: 60px;
 }
 
 /*  */
@@ -32,7 +32,7 @@ button {
 /* HEADER */
 
 header {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     justify-content: center;
     background-color: #ff7f00;
     height: 70px;
@@ -65,12 +65,12 @@ header {
 .canvas-container {
     margin-bottom: 40px;
     height: 600px;
-    width: 600px;
+    max-width: 600px;
 }
 
 
 .meme-editor {
-    width: 300px;
+    max-width: 300px;
     gap: 10px;
 }
 
@@ -112,6 +112,16 @@ button > img {
     width: 60px;
 }
 
+/* IMAGE GALLERY */
+
+.filtering {
+    max-width: 800px;
+}
+
+.filtering p{
+    cursor: pointer;
+}
+
 .gallery {
     gap: 10px;
     justify-content: center;
@@ -126,7 +136,14 @@ button > img {
 /* FOOTER */
 
 footer {
-    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-container {
+    padding: 10px;
     background-color: #ff7f00;
     flex-direction: column;
     justify-content: space-evenly;
@@ -145,15 +162,29 @@ footer {
     }
 
     .canvas-container {
-        height: 300px;
+        max-height: 300px;
+        /* margin-bottom: 20px; */
     }
 
     canvas {
-        width: 350px;
+        max-width: 350px;
     }
     
     .main {
         flex-direction: column;
+    }
+
+    button > img {
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .bottom-container {
+        gap: 5px;
+    }
+
+    footer {
+        position: unset;
     }
 }
 
