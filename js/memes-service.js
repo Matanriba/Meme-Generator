@@ -25,6 +25,10 @@ function renderImg() {
             if (!line || line.length === 0) return
             drawText(line.txt, lineNum)
             if (lineNum < gMeme.lines.length) lineNum++
+            // if (lineNum === gCurrLine)  {
+            //     var txtWidth = gCtx.measureText(gMeme.lines[lineNum].txt).width
+            //     drawRect(gMeme.lines[lineNum].x, gMeme.lines[lineNum].y, txtWidth)
+            // }
         })
     }
     myImg.src = currImg.url;
@@ -104,22 +108,20 @@ function changeFontSize(diff) {
     gMeme.lines[gCurrLine].size += diff;
     _saveTextToStorage()
     renderCanvas()
-    // drawText(gMeme.lines[gCurrLine].txt)
 }
 
 function changeFontLocation(diff) {
     gMeme.lines[gCurrLine].y += diff
     _saveTextToStorage()
     renderCanvas()
-    // drawText(gMeme.lines[gCurrLine].txt)
 }
 
 function changeCurrLine() {
     if (gCurrLine >= gMeme.lines.length - 1) gCurrLine = 0;
     else gCurrLine++;
 
-    var txtWidth = gCtx.measureText(txt).width
-    drawRect(x, y, txtWidth)
+    // var txtWidth = gCtx.measureText().width
+    // drawRect(x, y, txtWidth)
 }
 
 function deleteCurrLine() {
@@ -127,7 +129,6 @@ function deleteCurrLine() {
     if (gCurrLine > 0) gCurrLine--
     _saveTextToStorage()
     renderCanvas()
-    // renderLines()
 }
 
 function changeTextAlign(textAlign) {

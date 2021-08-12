@@ -11,41 +11,73 @@
 
 <body onload="init()">
 
-
-    <header class="flex align-items">
-        <img class="logo" src="img/LOGO.png" alt="">
-        <ul class="links flex align-items clean-list">
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+    <header>
+        <div class="header-container flex align-items main-layout">
+            <img class="logo" src="img/LOGO.png" alt="">
+            <ul class="links flex align-items clean-list">
+                <li><a href="#" onclick="renderImages()">Images</a></li>
+                <li><a href="#footer">About</a></li>
+            </ul>
+        </div>
     </header>
 
-    <section class="meme-editor">
-        <canvas id="my-canvas" height="600" width="600"></canvas>
-        <input name="top-text" type="text" placeholder="Input text here">
-        <button onclick="onTextSubmitted()"><img src="img/ICONS/add.png" alt=""></button>
-        <select name="fonts" onchange="changeFont(this.value)">
-            <option value="impact">Impact</option>
-            <option value="arial">Arial</option>
-            <option value="Comic-Sans">Comic Sans</option>
-        </select>
-        <input type="color" class="color-picker" onchange="changeColor(this.value)">
-        <button onclick="changeFontSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
-        <button onclick="changeFontSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
-        <button onclick="changeFontLocation(-10)"><img src="img/ICONS/up-arrow.png" alt=""></button>
-        <button onclick="changeFontLocation(10)"><img src="img/ICONS/down-arrow.png" alt=""></button>
-        <button onclick="changeCurrLine()"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
-                alt=""></button>
-        <button onclick="deleteCurrLine()"><img src="img/ICONS/trash.png" alt=""></button>
-        <button onclick="changeTextAlign('left')"><img src="img/ICONS/align-to-left.png" alt=""></button>
-        <button onclick="changeTextAlign('center')"><img src="img/ICONS/center-text-alignment.png" alt=""></button>
-        <button onclick="changeTextAlign('right')"><img src="img/ICONS/align-to-right.png" alt=""></button>
-        <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><img src="img/ICONS/save.png"
-                alt=""></a>
+    <section class="main flex align-items main-layout">
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="600" width="600"></canvas>
+        </div>
+        <div class="meme-editor flex column main-layout">
+            <div class="top-container flex flex-wrap">
+                <input class="text-box" name="text" type="text" placeholder="Input text here">
+                <button onclick="changeCurrLine()"><img
+                        src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button onclick="onTextSubmitted()"><img src="img/ICONS/add.png" alt=""></button>
+                <button onclick="deleteCurrLine()"><img src="img/ICONS/trash.png" alt=""></button>
+            </div>
+            <div class="mid-container flex space-evenly">
+                <button onclick="changeFontLocation(-10)"><img src="img/ICONS/up-arrow.png" alt=""></button>
+                <button onclick="changeFontLocation(10)"><img src="img/ICONS/down-arrow.png" alt=""></button>
+            </div>
+            <div class="bottom-container flex flex-wrap space-evenly">
+                <select class="font-picker" name="fonts" onchange="changeFont(this.value)">
+                    <option value="impact">Impact</option>
+                    <option value="arial">Arial</option>
+                    <option value="Comic-Sans">Comic Sans</option>
+                </select>
+                <button onclick="changeFontSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
+                <button onclick="changeFontSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
+                <button onclick="changeTextAlign('left')"><img src="img/ICONS/align-to-left.png" alt=""></button>
+                <button onclick="changeTextAlign('center')"><img src="img/ICONS/center-text-alignment.png"
+                        alt=""></button>
+                <button onclick="changeTextAlign('right')"><img src="img/ICONS/align-to-right.png" alt=""></button>
+                <input type="color" class="color-picker" onchange="changeColor(this.value)">
+                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><img src="img/ICONS/save.png"
+                        alt=""></a>
+            </div>
+        </div>
     </section>
 
-    <section class="gallery flex flex-wrap"></section>
+    <div class="gallery-container">
+        <div class="filtering flex align-items main-layout">
 
+            <input list="keywords" placeholder="Enter Search Keyword" onchange="onSetFilterBy(this.value)">
+            <datalist id="keywords">
+                <option value="all">
+                <option value="funny">
+                <option value="human">
+                <option value="baby">
+                <option value="animal">
+                <option value="angry">
+            </datalist>
+            <div class="keywords-container flex align-items flex-wrap space-evenly main-layout"></div>
+        </div>
+
+        <section class="gallery flex flex-wrap main-layout"></section>
+    </div>
+
+    <footer class="footer flex align-items">
+        <img class="logo" src="img/LOGO.png" alt="">
+        <small>All rights reserved 2021</small>
+    </footer>
 
     <script src="js/storage-service.js"></script>
     <script src="js/images-service.js"></script>
