@@ -1,10 +1,11 @@
 'use strict'
 
 function init() {
-    renderImages()
-    renderKeywords()
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    addListeners()
+    renderImages()
+    renderKeywords()
 }
 
 function renderImages() {
@@ -90,4 +91,8 @@ function onSetFilterBy(value) {
     changeKeywordSize(value)
     renderImages()
     renderKeywords()
+}
+
+function onSaveMeme() {
+    saveMeme()
 }

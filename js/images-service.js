@@ -112,7 +112,6 @@ function changeKeywordSize(value) {
     })
     gKeywords[currKeywordIdx].size += 1
     console.log(gKeywords[currKeywordIdx].size)
-    renderKeywords()
 }
 
 function getImgsForDisplay() {

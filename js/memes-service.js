@@ -25,10 +25,6 @@ function renderImg() {
             if (!line || line.length === 0) return
             drawText(line.txt, lineNum)
             if (lineNum < gMeme.lines.length) lineNum++
-            // if (lineNum === gCurrLine)  {
-            //     var txtWidth = gCtx.measureText(gMeme.lines[lineNum].txt).width
-            //     drawRect(gMeme.lines[lineNum].x, gMeme.lines[lineNum].y, txtWidth)
-            // }
         })
     }
     myImg.src = currImg.url;
@@ -72,7 +68,8 @@ function saveNewText(txt) {
         color: 'black',
         font: 'Impact',
         x: null,
-        y: null
+        y: null,
+        isDrag: false
     })
     changeCurrLine()
     _saveTextToStorage()
@@ -154,7 +151,10 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
-
+function saveMeme() {
+    let memeToSave = gElCanvas.toDataURL()
+    console.log(memeToSave)
+}
 
 
 // STORAGE FUNCTIONS
@@ -169,4 +169,23 @@ function _saveTextToStorage() {
 
 function _loadTextFromStorage() {
     loadFromStorage(KEY)
+}
+
+// LISTENERS
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+}
+
+function addMouseListeners() {
+    // gElCanvas.addEventListener('mousemove', onMove)
+    // gElCanvas.addEventListener('mousedown', onDown)
+    // gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    // gElCanvas.addEventListener('touchmove', onMove)
+    // gElCanvas.addEventListener('touchstart', onDown)
+    // gElCanvas.addEventListener('touchend', onUp)
 }
