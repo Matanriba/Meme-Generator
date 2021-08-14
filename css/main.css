@@ -68,6 +68,9 @@ header {
     max-width: 600px;
 }
 
+canvas {
+    text-align: center;
+}
 
 .meme-editor {
     max-width: 300px;
@@ -82,6 +85,7 @@ header {
     width: 100%;
     height: 4rem;
     text-align: center;
+    font-size: 1.5rem;
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;
@@ -116,6 +120,16 @@ button > img {
 
 .filtering {
     max-width: 800px;
+    padding: 10px;
+}
+
+.filtering input {
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    text-align: center;
 }
 
 .filtering p{
@@ -132,6 +146,32 @@ button > img {
     object-fit: contain;
     height: 139px;
 }
+
+.gallery .saved-meme-card {
+    width: 139px;
+    /* height: 200px; */
+    /* margin-bottom: 20px; */
+}
+
+.gallery .saved-meme-card .meme-img {
+    height: 139px;
+}
+
+.gallery button {
+    background-color: transparent;
+
+}
+
+.gallery .saved-meme-card .download-btn {
+    height: 50px;
+    width: 50px;
+}
+
+.gallery .saved-meme-card .delete-btn {
+    height: 40px;
+    width: 40px;
+}
+
 
 /* FOOTER */
 

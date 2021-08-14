@@ -4,6 +4,7 @@ var gElCanvas;
 var gCtx;
 
 const KEY = 'lineDB';
+var gUserMemes = [];
 
 var gMeme = {
     selectedImgId: null,
@@ -51,11 +52,43 @@ function drawText(txt, lineNum) {
     }
 }
 
-function drawRect(x, y, width) {
+function drawRect(idx) {
+    let line = getLineById(idx);
+    let lineSize = getLineSizeById(line);
+    let lineXStart = line.x - lineSize.width / 2 - 10;
+    let lineXEnd = lineSize.width + 20;
+    let lineYStart = line.y - line.size - 5;
+    let lineYEnd = line.size + 20;
+    if (line.align === 'left') {
+        lineXStart = 40;
+        // lineXEnd += 10; 
+    }
+    if (line.align === 'center') {
+        lineXStart += gElCanvas.width / 2 - 50;
+        // lineXEnd += 10;
+    }
+    if (line.align === 'right') {
+        lineXStart = gElCanvas.width - lineSize.width - 60;
+        // lineXEnd = (gElCanvas.width - 50);
+    }
     gCtx.beginPath()
-    gCtx.rect(x - 10, y - gMeme.lines[gCurrLine].size, width + 20, gMeme.lines[gCurrLine].size + 10)
-    gCtx.strokeStyle = 'black'
+    gCtx.rect(lineXStart, lineYStart, lineXEnd, lineYEnd)
+    gCtx.strokeStyle = 'red'
     gCtx.stroke()
+    gCtx.closePath();
+}
+
+function getLineById(idx) {
+    return gMeme.lines[idx];
+}
+
+function getLineSizeById(line) {
+    let measurements = gCtx.measureText(line.txt);
+
+    let width = measurements.width;
+    let height = line.size;
+
+    return { width, height };
 }
 
 // BUTTON FUNCTIONS
@@ -73,8 +106,6 @@ function saveNewText(txt) {
     })
     changeCurrLine()
     _saveTextToStorage()
-    console.log(gCurrLine)
-    console.log(gMeme.lines)
 }
 
 function changeColor(color) {
@@ -117,8 +148,7 @@ function changeCurrLine() {
     if (gCurrLine >= gMeme.lines.length - 1) gCurrLine = 0;
     else gCurrLine++;
 
-    // var txtWidth = gCtx.measureText().width
-    // drawRect(x, y, txtWidth)
+    setTimeout(drawRect, 50, gCurrLine)
 }
 
 function deleteCurrLine() {
@@ -151,9 +181,29 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function saveMeme() {
-    let memeToSave = gElCanvas.toDataURL()
-    console.log(memeToSave)
+function downloadMeme(elLink, idx) {
+    var imgContent = gUserMemes[idx]
+    elLink.href = imgContent
+}
+
+function deleteMeme(idx) {
+    gUserMemes.splice(idx, 1)
+    onMyMemesClicked()
+}
+
+function saveMeme(imgData) {
+    gUserMemes.push(imgData);
+    saveToStorage('myMemes', gUserMemes);
+}
+
+function loadAllMemes() {
+    let myMemes = loadFromStorage('myMemes');
+    if (!myMemes || myMemes.length === 0) {
+        myMemes = [];
+        saveToStorage('myMemes', myMemes);
+    } else {
+        gUserMemes = myMemes;
+    }
 }
 
 

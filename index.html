@@ -16,7 +16,7 @@
             <img class="logo" src="img/LOGO.png" alt="">
             <ul class="links flex align-items clean-list">
                 <li><a href="#" onclick="renderImages()">Images</a></li>
-                <li><a href="#footer">About</a></li>
+                <li><a href="#" onclick="onMyMemesClicked()">My Memes</a></li>
             </ul>
         </div>
     </header>
@@ -28,7 +28,7 @@
         <div class="meme-editor flex column main-layout">
             <div class="top-container flex flex-wrap">
                 <input class="text-box" name="text" type="text" placeholder="Input text here">
-                <button onclick="changeCurrLine()"><img
+                <button onclick="onChangeCurrLine()"><img
                         src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                 <button onclick="onTextSubmitted()"><img src="img/ICONS/add.png" alt=""></button>
                 <button onclick="deleteCurrLine()"><img src="img/ICONS/trash.png" alt=""></button>
@@ -45,25 +45,27 @@
                     <option value="arial">Arial</option>
                     <option value="Comic-Sans">Comic Sans</option>
                 </select>
+                <button onclick="changeFontSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
+                <button onclick="changeFontSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
                 <button onclick="changeTextAlign('left')"><img src="img/ICONS/align-to-left.png" alt=""></button>
                 <button onclick="changeTextAlign('center')"><img src="img/ICONS/center-text-alignment.png"
                         alt=""></button>
                 <button onclick="changeTextAlign('right')"><img src="img/ICONS/align-to-right.png" alt=""></button>
-                <button onclick="changeFontSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
-                <button onclick="changeFontSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
                 <input src="img/ICONS/paint-board-and-brush.png" type="color" class="color-picker"
                     onchange="changeColor(this.value)">
                 <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><img
                         src="img/ICONS/download.png" alt=""></a>
                 <button class="share-container" onclick="uploadImg()"><img src="img/ICONS/facebook-logo.png"
                         alt=""></button>
+                <button class="save-btn" onclick="onSaveMeme()"><img src="img/ICONS/save.png"
+                        alt=""></button>
+
             </div>
         </div>
     </section>
 
     <div class="gallery-container">
         <div class="filtering flex align-items main-layout">
-
             <input list="keywords" placeholder="Enter Search Keyword" onchange="onSetFilterBy(this.value)">
             <datalist id="keywords">
                 <option value="all">
@@ -84,6 +86,7 @@
             <img class="logo" src="img/LOGO.png" alt="">
             <small>All rights reserved 2021</small>
         </div>
+        <div class="my-memes"></div>
     </footer>
 
     <script src="js/upload-service.js"></script>
