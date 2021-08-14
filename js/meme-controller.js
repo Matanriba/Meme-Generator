@@ -114,8 +114,10 @@ function onMyMemesClicked() {
     let strHtmls = gUserMemes.map((image, idx) => {
         return `<div class="saved-meme-card flex flex-wrap">
         <a href="#"><img class="meme-img" src="${image}" onclick="onSavedImageClick(${idx})"></a>
+        <div class="meme-btn-container flex center">
         <a href="#" onclick="onDownloadMeme(this, ${idx})" download="my-meme.jpg"><img class="download-btn" src="img/ICONS/download.png" alt=""></a>
-        <button onclick="onDeleteMeme(${idx})"><img class="delete-btn" src="img/ICONS/trash.png" alt=""></button>
+        <button onclick="onDeleteMeme(${idx})"><img class="delete-btn" src="img/ICONS/trash.png" title="Delete Meme"></button>
+        </div>
         </div>`
     });
 

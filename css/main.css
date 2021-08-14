@@ -31,23 +31,23 @@ button {
 
 /* HEADER */
 
-header {
+.main-header {
     margin-bottom: 1.5rem;
-    justify-content: center;
     background-color: #ff7f00;
-    height: 70px;
 }
 
 .header-container {
     height: 100%;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .logo {
     height: 50px;
 }
 
-.links {
+.links li{
+    flex-basis: 50%;
     gap: 10px;
 }
 
@@ -191,10 +191,10 @@ footer {
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 750px) {
     
     .main-layout {
-        width: 350px;
+        max-width: 400px;
     }
 
     .filtering {
@@ -203,7 +203,6 @@ footer {
 
     .canvas-container {
         max-height: 300px;
-        /* margin-bottom: 20px; */
     }
 
     canvas {
@@ -242,6 +241,10 @@ footer {
 
 .flex-wrap {
     flex-wrap: wrap;
+}
+
+.center {
+    justify-content: center;
 }
 
 .space-between {
