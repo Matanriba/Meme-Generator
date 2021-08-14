@@ -52,10 +52,11 @@
                         alt=""></button>
                 <button onclick="changeTextAlign('right')"><img src="img/ICONS/align-to-right.png" alt=""></button>
                 <input src="img/ICONS/paint-board-and-brush.png" type="color" class="color-picker"
-                    onchange="changeColor(this.value)">
-                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><img
-                        src="img/ICONS/download.png" alt=""></a>
-                <button class="share-container" onclick="uploadImg()"><img src="img/ICONS/facebook-logo.png"
+                    oninput="changeColor(this.value)">
+                <button><a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><img
+                    src="img/ICONS/download.png" alt=""></a>
+                </button>
+                    <button class="share-container" onclick="uploadImg()"><img src="img/ICONS/facebook-logo.png"
                         alt=""></button>
                 <button class="save-btn" onclick="onSaveMeme()"><img src="img/ICONS/save.png"
                         alt=""></button>

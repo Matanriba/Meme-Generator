@@ -55,16 +55,16 @@ function drawText(txt, lineNum) {
 function drawRect(idx) {
     let line = getLineById(idx);
     let lineSize = getLineSizeById(line);
-    let lineXStart = line.x - lineSize.width / 2 - 10;
-    let lineXEnd = lineSize.width + 20;
-    let lineYStart = line.y - line.size - 5;
-    let lineYEnd = line.size + 20;
+    let lineXStart = line.x - line.size - 10;
+    let lineXEnd = lineSize.width + line.size;
+    let lineYStart = line.y - line.size;
+    let lineYEnd = line.size + 10;
     if (line.align === 'left') {
         lineXStart = 40;
         // lineXEnd += 10; 
     }
     if (line.align === 'center') {
-        lineXStart += gElCanvas.width / 2 - 50;
+        lineXStart += gElCanvas.width / 2 - line.size - 50;
         // lineXEnd += 10;
     }
     if (line.align === 'right') {
@@ -91,7 +91,11 @@ function getLineSizeById(line) {
     return { width, height };
 }
 
+
+// ---------------------------------------------------------
 // BUTTON FUNCTIONS
+// ---------------------------------------------------------
+
 
 function saveNewText(txt) {
     gMeme.lines.push({
@@ -188,6 +192,7 @@ function downloadMeme(elLink, idx) {
 
 function deleteMeme(idx) {
     gUserMemes.splice(idx, 1)
+    saveToStorage('myMemes', gUserMemes);
     onMyMemesClicked()
 }
 
@@ -219,23 +224,4 @@ function _saveTextToStorage() {
 
 function _loadTextFromStorage() {
     loadFromStorage(KEY)
-}
-
-// LISTENERS
-
-function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
-}
-
-function addMouseListeners() {
-    // gElCanvas.addEventListener('mousemove', onMove)
-    // gElCanvas.addEventListener('mousedown', onDown)
-    // gElCanvas.addEventListener('mouseup', onUp)
-}
-
-function addTouchListeners() {
-    // gElCanvas.addEventListener('touchmove', onMove)
-    // gElCanvas.addEventListener('touchstart', onDown)
-    // gElCanvas.addEventListener('touchend', onUp)
 }
